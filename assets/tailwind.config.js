@@ -26,7 +26,7 @@ module.exports = {
         },
         emLavender: {
           dark: "#8c52ff",
-          DEFAULT: "9d74ee",
+          DEFAULT: "#9d74ee",
           light: "#bc9bff"
         }
       },
