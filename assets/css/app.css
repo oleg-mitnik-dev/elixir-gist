@@ -16,3 +16,11 @@
     font-weight: bold;
     font-style: normal;
 }
+
+@layer components {
+    .round-image-padding {
+        border-radius: 50%;
+        border: 1.5px solid #FFFFFF;
+        padding: 4px;
+    }
+}
