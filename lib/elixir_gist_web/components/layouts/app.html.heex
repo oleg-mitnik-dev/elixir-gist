@@ -32,9 +32,51 @@
       <span class="h-0 w-0 border-x-4 border-x-transparent border-t-[5px] border-b-white"></span>
     </button>
 
-    <div class="absolute right-0 mt-2 py-2 w-48 bg-emDark rounded-lg shadow-xl border border-white">
+    <div class="absolute right-0 mt-2 py-2 w-60 bg-emDark rounded-lg shadow-xl border border-white">
       <%= if @current_user do %>
-        Sign out
+        <.link
+          href={~p"/users/settings"}
+          id="user-menu-item-0"
+          class="menu-item border-b border-white/25"
+          role="menuitem"
+          tabindex="-1"
+          method="get"
+        >
+          Signed in as <%= @current_user.email %>
+        </.link>
+
+        <.link
+          href="#"
+          id="user-menu-item-1"
+          class="menu-item"
+          role="menuitem"
+          tabindex="-1"
+          method="get"
+        >
+          Your gists
+        </.link>
+
+        <.link
+          href="#"
+          id="user-menu-item-2"
+          class="menu-item border-b border-white/25"
+          role="menuitem"
+          tabindex="-1"
+          method="get"
+        >
+          Saved gists
+        </.link>
+
+        <.link
+          href={~p"/users/log_out"}
+          id="user-menu-item-3"
+          class="menu-item"
+          role="menuitem"
+          tabindex="-1"
+          method="delete"
+        >
+          Sign out
+        </.link>
       <% else %>
         <.link
           href={~p"/users/log_in"}
