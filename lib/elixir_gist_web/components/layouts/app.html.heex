@@ -3,11 +3,11 @@
     <a href={~p"/"}>
       <img src="/images/gist-logo.svg" alt="Logo" class="h-8 w-8" />
     </a>
-
+    
     <a href={~p"/"} class="mr-6">
       <div class="text-white font-brand font-bold text-3xl">Gist</div>
     </a>
-
+    
     <div>
       <input
         type="text"
@@ -16,14 +16,19 @@
         placeholder="Search"
       />
     </div>
-
+    
     <button class="mt-2 mr-2 text-white text-[1rem] font-brand font-bold hover:text-emDark-light">
       All gists
     </button>
   </div>
-
+  
   <div class="relative">
-    <button id="user-menu-button" class="flex justify-center items-center gap-2" type="button">
+    <button
+      id="user-menu-button"
+      phx-click={ElixirGistWeb.Layouts.App.toggle_dropdown_menu()}
+      class="flex justify-center items-center gap-2"
+      type="button"
+    >
       <img
         src="/images/user-image.svg"
         alt="Profile image"
@@ -31,8 +36,11 @@
       />
       <span class="h-0 w-0 border-x-4 border-x-transparent border-t-[5px] border-b-white"></span>
     </button>
-
-    <div class="absolute right-0 mt-2 py-2 w-60 bg-emDark rounded-lg shadow-xl border border-white">
+    
+    <div
+      id="dropdown-menu"
+      class="absolute hidden right-0 mt-2 py-2 w-60 bg-emDark rounded-lg shadow-xl border border-white"
+    >
       <%= if @current_user do %>
         <.link
           href={~p"/users/settings"}
@@ -44,7 +52,7 @@
         >
           Signed in as <%= @current_user.email %>
         </.link>
-
+        
         <.link
           href="#"
           id="user-menu-item-1"
@@ -55,7 +63,7 @@
         >
           Your gists
         </.link>
-
+        
         <.link
           href="#"
           id="user-menu-item-2"
@@ -66,7 +74,7 @@
         >
           Saved gists
         </.link>
-
+        
         <.link
           href={~p"/users/log_out"}
           id="user-menu-item-3"
@@ -88,7 +96,7 @@
         >
           Sign in
         </.link>
-
+        
         <.link
           href={~p"/users/register"}
           id="user-menu-item-1"
