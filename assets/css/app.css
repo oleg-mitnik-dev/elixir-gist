@@ -17,6 +17,10 @@
     font-style: normal;
 }
 
+.em-gradient {
+    @apply bg-gradient-to-b from-[#631a61] via-[#551653] to-transparent h-[225px];
+}
+
 @layer components {
     .round-image-padding {
         border-radius: 50%;
